@@ -17,10 +17,11 @@
     "prepublishOnly": "npm test && npm run prettier && npm run lint",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "build": "yarn build:esm",
     "build:esm": "tsc",
-    "publish:dry": "yarn publish --dry-run"
+    "publish:dry": "npm publish --dry-run"
   },
   "dependencies": {
     "eslint": "^8.39.0",
