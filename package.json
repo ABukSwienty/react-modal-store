@@ -1,6 +1,6 @@
 {
   "name": "r-modal-store",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "description": "Create a modal store and easily call modals throughout your React app.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -26,14 +26,15 @@
   },
   "dependencies": {
     "eslint": "^8.39.0",
-    "nanoid": "^4.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "*",
+    "uuid": "^9.0.0",
     "zustand": "^4.3.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.38",
+    "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.59.0",
     "@typescript-eslint/parser": "^5.59.0",
     "cz-conventional-changelog": "3.3.0",
