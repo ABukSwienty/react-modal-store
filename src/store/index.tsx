@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid';
+import { v4 as uuidv4 } from 'uuid';
 import { FC } from 'react';
 
 import { createStore } from 'zustand';
@@ -21,7 +21,7 @@ export const modalStore = createStore<Store>((set) => ({
   modal: null,
   setModal: (component, props, options) => {
     const onMount = options?.onMount;
-    set({ modal: { id: nanoid(), component, props, options } });
+    set({ modal: { id: uuidv4(), component, props, options } });
     onMount?.();
   },
   dismiss: () => {
