@@ -1,6 +1,6 @@
 {
-  "name": "react-modal-store",
-  "version": "0.0.1",
+  "name": "r-modal-store",
+  "version": "1.0.0",
   "description": "Create a modal store and easily call modals throughout your React app.",
   "main": "./dist/esm/index.js",
   "module": "./dist/esm/index.js",
@@ -8,14 +8,20 @@
   "author": "ABukSwienty",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ABukSwienty/react-modal-store"
+  },
   "scripts": {
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run prettier && npm run lint",
     "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
     "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "build": "yarn build:esm",
-    "build:esm": "tsc"
+    "build:esm": "tsc",
+    "publish:dry": "npm publish --dry-run"
   },
   "dependencies": {
     "eslint": "^8.39.0",
