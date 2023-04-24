@@ -1,0 +1,63 @@
+{
+  "name": "react-modal-store",
+  "version": "0.0.1",
+  "description": "Create a modal store and easily call modals throughout your React app.",
+  "main": "./dist/esm/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "author": "ABukSwienty",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run prettier && npm run lint",
+    "lint": "eslint \"{**/*,*}.{js,ts,jsx,tsx}\"",
+    "prettier": "prettier --write \"{src,tests,example/src}/**/*.{js,ts,jsx,tsx}\"",
+    "test": "vitest",
+    "build": "yarn build:esm",
+    "build:esm": "tsc"
+  },
+  "dependencies": {
+    "eslint": "^8.39.0",
+    "nanoid": "^4.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "*",
+    "zustand": "^4.3.7"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.38",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.8.8",
+    "vitest": "^0.30.1"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "react": ">=18.2",
+    "zustand": ">=4.3.7"
+  },
+  "engines": {
+    "node": "~18.12.1",
+    "yarn": "~1.22.19"
+  },
+  "packageManager": "yarn@1.22.19",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
