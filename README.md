@@ -144,7 +144,7 @@ const MyModal = () => {
       {show && (
         <motion.div {...variantProps}>
           <h1>Hello World!</h1>
-          <button onClick={dismiss}>Dismiss</button>
+          <button onClick={() => setShow(false)}>Dismiss</button>
         </motion.div>
       )}
     </AnimatePresence>
