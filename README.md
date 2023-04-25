@@ -1,5 +1,10 @@
 # React Modal Store
 
+[![npm version](https://badge.fury.io/js/r-modal-store.svg)](https://badge.fury.io/js/r-modal-store)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> Headless modal management for React
+
 Easily manage and display modals in your React app with this utility library. It simplifies modal handling without offering pre-built components, allowing for smooth integration with any UI library or custom components.
 
 - [React Modal Store](#react-modal-store)
@@ -10,7 +15,6 @@ Easily manage and display modals in your React app with this utility library. It
     - [Calling modals](#calling-modals)
     - [`ModalContainer`](#modalcontainer)
     - [`useModalStore`](#usemodalstore)
-  - [A Note on Unmounting](#a-note-on-unmounting)
     - [With `framer-motion`](#with-framer-motion)
   - [License](#license)
 
@@ -99,55 +103,69 @@ This function creates an object that maps the provided modals to a key and retur
 
 ### Calling modals
 
-The modal object created with `createModals` accepts two arguments:
+The modal object created with `createModals` accepts one argument:
 
 - props: The props for your modal
-- options (optional): Callback functions for when the modal mounts and unmounts
 
 ```typescript
-modal.alert(
-  {
-    title: 'Hello World!',
-  },
-  {
-    onMount: () => {},
-    onUnmount: () => {},
-  },
-);
+modal.alert({
+  title: 'Hello World!',
+});
 ```
 
 ### `ModalContainer`
 
 The `<ModalContainer />` component should be placed at the root of your app. It is responsible for rendering the modals.
 
+It accepts one argument:
+
+- inner: A React function component. This is useful if you need need to wrap you modal with a parent component that needs to pass on a ref.
+
+```tsx
+import { ModalContainer } from 'r-modal-store';
+
+const App = () => {
+  return (
+    <div>
+      <ModalContainer inner={MyModalContainer} />
+      {/* rest of your app */}
+    </div>
+  );
+};
+```
+
 ### `useModalStore`
 
 `useModalStore` is a react hook that returns a dismiss function that can be used to dismiss the current modal.
 
-## A Note on Unmounting
-
-`r-modal-store` utilizes zustand store to mount and unmount modals. When a modal is dismissed, it is immediately removed.
-
-This may cause issues with libraries like `framer-motion` when you want to apply animations on exit. To resolve this, control when the dismiss function is called.
-
 ### With `framer-motion`
 
-```typescript
+In order to pick up on the exit animation, you can pass in the `AnimatePresence` component as the `inner` prop to the `<ModalContainer />` component.
+
+```tsx
+import { ModalContainer } from 'r-modal-store';
+
+const App = () => {
+  return (
+    <div>
+      <ModalContainer inner={AnimatePresence} />
+      {/* rest of your app */}
+    </div>
+  );
+};
+```
+
+```tsx
 import { useModalStore } from 'r-modal-store';
 
 const MyModal = () => {
-  const [show, setShow] = useState(true);
   const { dismiss } = useModalStore();
 
   return (
-    <AnimatePresence onExitComplete={dismiss}>
-      {show && (
-        <motion.div {...variantProps}>
-          <h1>Hello World!</h1>
-          <button onClick={() => setShow(false)}>Dismiss</button>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <motion.div {...variantProps}>
+      <h1>Hello World!</h1>
+      <button onClick={dismiss}>Dismiss</button>
+    </motion.div>
   );
 };
 ```
