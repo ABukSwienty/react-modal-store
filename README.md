@@ -1,7 +1,8 @@
 # React Modal Store
 
-[![npm version](https://badge.fury.io/js/r-modal-store.svg)](https://badge.fury.io/js/r-modal-store)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://badgen.net/npm/v/r-modal-store)](https://badgen.net/npm/v/r-modal-store)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/r-modal-store)
+![NPM](https://img.shields.io/npm/l/r-modal-store)
 
 > Headless modal management for React
 
