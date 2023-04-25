@@ -29,7 +29,7 @@ describe('store', () => {
 
     modal.dismiss();
 
-    expect(modalStore.getState().modal).toBeNull();
+    expect(modalStore.getState().show).toBeFalsy();
   });
 
   it('should create unique ids', () => {

@@ -1,6 +1,6 @@
 {
   "name": "r-modal-store",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Create a modal store and easily call modals throughout your React app.",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
