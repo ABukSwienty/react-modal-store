@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { modalStore } from '../store';
+import { modalStore } from './store';
 
 const createSingle = <T>(modal: FC<T>) => {
   return (props: T) => {

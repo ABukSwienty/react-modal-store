@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useStore } from 'zustand';
-import { modalStore } from '../store';
+import { modalStore } from './store';
 
 type InnerProps = Record<string, any> & { children?: React.ReactNode };
 

@@ -1,4 +1,4 @@
-import { modalStore } from '../store';
+import { modalStore } from './store';
 import { useRef } from 'react';
 
 export const useModalStore = () => {
