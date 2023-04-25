@@ -1,10 +1,9 @@
 import { FC } from 'react';
 import { modalStore } from '../store';
-import { ModalOptions } from '../types';
 
 const createSingle = <T>(modal: FC<T>) => {
-  return (props: T, options?: ModalOptions) => {
-    modalStore.getState().setModal(modal, props || {}, options);
+  return (props: T) => {
+    modalStore.getState().setModal(modal, props || {});
   };
 };
 
@@ -13,7 +12,7 @@ type ModalMap<T extends Record<string, object>> = {
 };
 
 type ModalCaller<T extends Record<string, object>> = {
-  [K in keyof T]: (props: T[K], options?: ModalOptions) => void;
+  [K in keyof T]: (props: T[K]) => void;
 };
 
 /**
